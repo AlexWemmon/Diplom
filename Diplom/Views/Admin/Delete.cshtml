@@ -1,0 +1,54 @@
+﻿@model Diplom.Test1
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@{Layout = "_LayoutAdmin";}
+
+<h3>Вы уверены, что хотите удалить тест?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestName)
+        </dd>
+      @*  <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AuthorId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AuthorId)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MinScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MinScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestDate)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TestId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="AllTests" class="btn btn-info">К списку тестов</a>
+    </form>
+</div>

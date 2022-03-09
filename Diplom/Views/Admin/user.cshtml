@@ -1,0 +1,41 @@
+@model Diplom.Tutor
+
+@{Layout = "_LayoutAdmin";}
+
+<h1 class="m-3">Информация профиля</h1>
+
+<div class="m-3">
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LogIn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LogIn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassWord)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+
+
+
+    </dl>
+    <form asp-action="ChangePassword" asp-controller="Admin">
+        <label>Сменить пароль</label><br />
+        <input type="text" name="password" required />
+        <input type="submit" value="Сменить" class="btn btn-success"/>
+    </form>
+</div>
+<div>
+
+</div>

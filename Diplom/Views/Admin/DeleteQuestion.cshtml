@@ -1,0 +1,20 @@
+﻿@model Diplom.Question
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@{Layout = "_LayoutAdmin";}
+<h1>Delete</h1>
+
+<h3>Вы уверены, что хотите удалить вопрос?</h3>
+<div>
+    <h4>@Model.QuestText</h4>
+    <hr />
+    
+
+    <form asp-action="DeleteConfirmedQuest">
+        <input type="hidden" value="@Model.QuestId" name="id" class="form-control" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="AllQuestions">К списку вопросов</a>
+    </form>
+</div>

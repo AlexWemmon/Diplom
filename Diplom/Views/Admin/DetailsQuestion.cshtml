@@ -1,0 +1,40 @@
+﻿@model Diplom.Question
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{Layout = "_LayoutAdmin";}
+<h1>Детали о вопросе</h1>
+
+<div>
+    <h4>@Model.QuestText</h4>
+    <hr />
+    <dl class="row">
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuestText)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuestScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditQuestion" asp-route-id="@Model.QuestId">Редактировать</a> |
+    <a asp-action="AllTests" >К списку тестов</a>
+</div>

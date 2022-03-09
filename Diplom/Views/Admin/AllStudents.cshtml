@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Diplom.Student>
+@{ Layout = "_LayoutAdmin";}
+
+
+<h1>Cписок студентов</h1>
+
+
+<table class="table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassWord)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fio)
+                </td>
+
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.LogIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassWord)
+                </td>
+                <td>
+                    @*<a asp-controller="StartTest1" asp-action="Start" asp-route-id="@item.TestId">Старт</a> |*@
+                    <a asp-controller="Admin" asp-action="DetailsStudent" asp-route-id="@item.StudentId" class="btn btn-info">Детали</a>
+                    
+                    <a asp-controller="Admin" asp-action="DeleTest1udents" asp-route-id="@item.StudentId" class="btn btn-danger">Удалить</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<form asp-action="AddStudent" asp-controller="Admin">
+    <input type="submit" class="btn btn-dark" value="Добавить студента" />
+</form>
+

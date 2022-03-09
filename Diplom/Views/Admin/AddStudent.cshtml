@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Diplom.GroupId>
+
+
+@{ Layout = "_LayoutAdmin";}
+<h1>Create</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateStudent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Fio</label>
+                <input type="text" name="items" class="form-control" required />
+
+            </div>
+            <div class="form-group">
+                <label>LogIn</label>
+                <input type="text" name="items" class="form-control" required />
+
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="text" name="items" class="form-control" required />
+
+            </div>
+            <div class="form-group">
+                <label>Группа</label>
+              
+
+
+            <select id="users" name="user" required>
+                <option class="dropdown-menu" disabled>Выберите группу</option>
+                @foreach (var item in Model)
+                {
+                    <option class="dropdown-item" value="@item.GroupName">@item.GroupName</option>
+                }
+            </select>
+                </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AllStudents">К списку студентов</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

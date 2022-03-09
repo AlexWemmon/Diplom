@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Diplom.Question>
+@{ Layout = "_LayoutAdmin";}
+
+
+<h1>Cписок вопросов</h1>
+
+<p>
+    @* <a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestText)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestText)
+                </td>
+
+
+                <td>
+                    @*<a asp-controller="StartTest" asp-action="Start" asp-route-id="@item.TestId">Старт</a> |*@
+                    <a asp-controller="Admin" asp-action="DetailsQuestion" asp-route-id="@item.TestId">Детали</a>
+                    <a asp-controller="Admin" asp-action="DeleteQuestion" asp-route-id="@item.TestId">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="AddQuestion" asp-controller="Admin">
+    <input type="submit" value="Добавить вопрос" />
+</form>

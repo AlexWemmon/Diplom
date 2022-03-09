@@ -1,0 +1,49 @@
+﻿@model Diplom.Test1
+
+
+@{ Layout = "_LayoutAdmin";}
+<h1>Create</h1>
+
+
+<hr />
+<div class="row" >
+    <div class="col-md-4">
+        <form asp-action="CreateQuestion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Кол-во баллов за вопрос</label>
+                <input type="text" name="items" class="form-control" required />
+
+            </div>
+
+            <div class="form-group">
+                <label>Текст вопроса</label>
+                <input type="text" name="items" class="form-control" required />
+
+            </div>
+            <div>
+                
+                <input type="hidden" name="user" value="@Model.TestId" class="form-control" required />
+
+            </div>
+            <div class="form-group">
+                <label>Фото вопроса</label>
+                <input type="text" name="items" class="form-control" required />
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AllTests">К списку тестов</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

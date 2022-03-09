@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    @await Html.PartialAsync("MetatagsPartial")
+
+    <title>Scrolling Nav - Start Bootstrap Template</title>
+
+
+    @await Html.PartialAsync("CssPartial")
+
+</head>
+
+<body id="page-top" >
+
+    <!-- Navigation -->
+    @await Html.PartialAsync("NavigationPartial")
+
+    @await Html.PartialAsync("HeaderPartial")
+    @RenderBody()
+
+   @* @await Html.PartialAsync("AboutPartial")*@
+
+
+    @*@await Html.PartialAsync("ServicesPartial")*@
+
+
+    @await Html.PartialAsync("ContactPartial")
+    <!-- Footer -->
+    @await Html.PartialAsync("FooterPartial")
+    @await Html.PartialAsync("ScriptsPartial")
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
+

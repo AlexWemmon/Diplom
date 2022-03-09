@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Diplom.Student>
+@{ Layout = "_LayoutAdmin";}
+
+
+<h1>Cписок студентов</h1>
+
+<p>
+    @* <a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fio)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.LogIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassWord)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fio)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.LogIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassWord)
+                </td>
+                <td>
+                    @*<a asp-controller="StartTest" asp-action="Start" asp-route-id="@item.TestId">Старт</a> |*@
+                    <a asp-controller="Admin" asp-action="DetailsStudent" asp-route-id="@item.StudentId">Детали</a>
+                    <a asp-controller="Admin" asp-action="DeleteStudents" asp-route-id="@item.StudentId">Удалить</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<form asp-action="AddStudent" asp-controller="Admin">
+    <input type="submit" value="Добавить студента" />
+</form>
+

@@ -1,0 +1,44 @@
+﻿@model Diplom.Test1
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{ Layout = "_LayoutTutor";}
+<h1>Детали теста</h1>
+
+<div>
+    <h4>@Model.TestName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestName)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MinScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MinScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TestId">Редактировать</a> |
+    <a asp-action="AllTests">К списку тестов</a>
+</div>

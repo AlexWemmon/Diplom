@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top align-content-end" id="mainNav">
+	<div class="container">
+
+		@if (User.Identity.IsAuthenticated)
+		{
+			<a class="navbar-brand js-scroll-trigger" href="@Url.Action("Index", "Admin")">Домой</a>
+		}
+		else
+		{
+			<a class="navbar-brand js-scroll-trigger" href="@Url.Action("Index", "Home")">Домой</a>
+		}
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#services">Описание</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#contact">Контакты</a>
+				</li>
+
+
+				@if (User.Identity.IsAuthenticated)
+				{
+	<li class="nav-item">
+		<a class="nav-link js-scroll-trigger" @*asp-action="Logout" asp-controller="Account"*@>@User.Identity.Name</a>
+	</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" asp-action="Logout" asp-controller="Account">Выход</a>
+					</li>
+ }
+								else
+								{
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" asp-action="Login" asp-controller="Account">Вход</a>
+					</li>
+}
+			</ul>
+		</div>
+	</div>
+</nav>

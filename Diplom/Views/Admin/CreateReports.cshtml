@@ -1,0 +1,22 @@
+﻿
+@model IEnumerable<Diplom.Student>
+
+@{Layout = "_LayoutAdmin";}
+<h1>Формирование отчётов по пройдённым тестам</h1>
+<br />
+<form asp-action="Reports" asp-controller="Admin" method="post">
+    <label>Выберите студента</label>
+    <select id="users" name="users" required>
+        <option class="dropdown-menu" disabled>Выберите студента</option>
+        @foreach (var item in Model)
+        {
+            <option class="dropdown-item" value="@item.Fio">@item.Fio</option>
+        }
+    </select>
+    <br />
+
+    <div class="form-group">
+        <input type="submit" value="Сформировать" class="btn btn-primary" />
+    </div>
+
+</form>

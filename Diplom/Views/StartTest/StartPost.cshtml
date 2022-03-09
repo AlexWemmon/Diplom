@@ -1,0 +1,12 @@
+﻿@model Diplom.Domain.Entities.Results
+
+<form asp-action="Index" asp-controller="Home">
+    
+        <label>Результат @Model.Score из @Model.MaxScore</label><br />
+        @if (@Model.passed == true)
+        {<label>Тест сдан</label><br />}
+        else
+        {<label>Тест не сдан</label><br />}
+        
+    
+</form>

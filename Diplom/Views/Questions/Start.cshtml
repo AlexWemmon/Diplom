@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Diplom.Question>
+
+
+
+<h1>Start</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+           
+        </tr>
+
+       
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestText)
+            </th>
+            </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestText)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+            <form asp-action="Start" asp-controller="Questions" method="post">
+                <div class="form-group">
+                    <input type="submit" value="Ответить" class="btn btn-primary" />
+                </div>
+            </form>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>

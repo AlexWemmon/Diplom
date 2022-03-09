@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    @await Html.PartialAsync("MetatagsPartial")
+
+    @*<title>Scrolling Nav - Start Bootstrap Template</title>*@
+
+
+    @await Html.PartialAsync("CssPartial")
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top align-content-end" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="@Url.Action("Index", "Home")">Домой</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">Описание</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">Контакты</a>
+                    </li>
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false" aria->@User.Identity.Name</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="PersonalStud">Личный кабинет</a></li>
+                                <li><a class="dropdown-item" asp-action="AllTests" asp-controller="Admin">Тесты</a></li>
+                                <li><a class="dropdown-item" asp-action="CreateReports" asp-controller="Admin">Отчёты</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Выход</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" asp-action="Login" asp-controller="Account">Вход</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @await Html.PartialAsync("HeaderPartial")
+
+    @RenderBody()
+
+    @await Html.PartialAsync("ContactPartial")
+    <!-- Footer -->
+    @await Html.PartialAsync("FooterPartial")
+    @await Html.PartialAsync("ScriptsPartial")
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

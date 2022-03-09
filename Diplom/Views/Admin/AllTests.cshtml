@@ -1,0 +1,106 @@
+@model IEnumerable<Diplom.Test1>
+@{ Layout = "_LayoutAdmin";}
+
+
+<h1 class="p-3">Cписок тестов</h1>
+<p>
+	@* <a asp-action="Create">Create New</a>*@
+</p>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.TestName)
+			</th>
+
+			<th>
+				@Html.DisplayNameFor(model => model.TestTime)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.MinScore)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.TestDate)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.TestName)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => item.TestTime)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.MinScore)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.TestDate)
+				</td>
+				<td>
+					<a asp-controller="StartTest" asp-action="Start" asp-route-id="@item.TestId" class="btn btn-primary">Начать тест</a>
+					<a asp-controller="Admin" asp-action="Details" asp-route-id="@item.TestId" class="btn btn-info">Детали</a>
+					<a asp-controller="Admin" asp-action="Delete" asp-route-id="@item.TestId" class="btn btn-danger">Удалить тест</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<div class="dropdown">
+	<button class="dropbtn btn btn-primary">Добавить тест</button>
+	<div class="dropdown-content">
+		<a asp-controller="Admin" asp-action="AddFromFile">Из файла</a>
+		<a asp-controller="Admin" asp-action="AddTest">Вручную</a>
+	</div>
+</div>
+<style>
+	.btn {
+		margin-left: 10px;
+	}
+
+	dropbtn {
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+	}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+
+			.dropdown-content a:hover {
+				background-color: #ddd;
+			}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: #3e8e41;
+	}
+</style>

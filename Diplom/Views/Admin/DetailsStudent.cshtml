@@ -1,0 +1,40 @@
+﻿@model Diplom.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{Layout = "_LayoutAdmin";}
+<h1>Детали о студенте</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fio)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LogIn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LogIn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassWord)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditStudent" asp-route-id="@Model.StudentId">Редактировать</a> |
+    <a asp-action="AllStudents">К списку студентов</a>
+</div>

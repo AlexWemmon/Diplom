@@ -1,0 +1,47 @@
+﻿@model Diplom.Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@{Layout = "_LayoutAdmin";}
+<h1>Delete</h1>
+
+<h3>Вы уверены, что хотите удалить cтудента?</h3>
+<div>
+    <h4>@Model.Fio</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Group.GroupName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Group.GroupName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LogIn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LogIn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassWord)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+        
+        
+    </dl>
+
+    <form asp-action="DeleteConfirmedStud">
+        <input type="hidden" value="@Model.StudentId" name="id" class="form-control" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="AllStudents">К списку cтудентов</a>
+    </form>
+</div>
