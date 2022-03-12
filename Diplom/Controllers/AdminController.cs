@@ -47,7 +47,7 @@ namespace Diplom.Controllers
             await _context.SaveChangesAsync();
             return View(tutor);
         }
-        public IActionResult AllTests() => View(_dataManager._TestRepository.GetTests());
+        public IActionResult AllTests() => View(_dataManager._testRepository.GetTests());
         public IActionResult AllStudents() => View(_dataManager._studRepository.GetStudents());
         public async Task<IActionResult> AddFromFile(IFormFile file)
         {
@@ -83,7 +83,7 @@ namespace Diplom.Controllers
         public IActionResult DetailsTest1(int? id)
         {
             if (id == null) return NotFound();
-            var Test1 = _dataManager._TestRepository.GetTestById(id.Value);
+            var Test1 = _dataManager._testRepository.GetTestById(id.Value);
             return View(Test1);
         }
         public IActionResult AddStudent() => View(_context.GroupIds.ToList());
@@ -206,7 +206,7 @@ namespace Diplom.Controllers
         public IActionResult EditTest(int? id)
         {
             if (id == null) return NotFound();
-            var Test1 = _dataManager._TestRepository
+            var Test1 = _dataManager._testRepository
                 .GetTestById(id.Value);
             return View(Test1);
         }
@@ -228,7 +228,7 @@ namespace Diplom.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_dataManager._TestRepository.TestExist(Test1.TestId))
+                    if (!_dataManager._testRepository.TestExist(Test1.TestId))
                     {
                         return NotFound();
                     }
@@ -259,7 +259,7 @@ namespace Diplom.Controllers
         public IActionResult Delete(int? id)
         {
             if (id == null) return NotFound();
-            var Test1 = _dataManager._TestRepository
+            var Test1 = _dataManager._testRepository
                 .GetTestById(id.Value);
             return View(Test1);
         }
@@ -267,7 +267,7 @@ namespace Diplom.Controllers
         {
             if (id == null) return NotFound();
             var questions = new List<Question>();
-            var Test1 = _dataManager._TestRepository
+            var Test1 = _dataManager._testRepository
                 .GetTestById(id.Value);
             foreach (var item in _context.Questions)
             {

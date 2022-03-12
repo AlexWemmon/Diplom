@@ -1,4 +1,4 @@
-﻿using Diplom.Domain.Repositories.Abstract;
+using Diplom.Domain.Repositories.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +11,13 @@ namespace Diplom.Service
     {
         public IQuestionsItemsRepository _questsRepository;
         public IStudentsRepository _studRepository;
-        public ITestRepository _TestRepository;
+        public ITestRepository _testRepository;
         public DataManager(IQuestionsItemsRepository questsRepository,
-            IStudentsRepository studRepository, ITestRepository TestRepository)
+            IStudentsRepository studRepository, ITestRepository testRepository)
         {
             _questsRepository = questsRepository;
             _studRepository = studRepository;
-            _TestRepository = TestRepository;
+            _testRepository = testRepository;
         }
     }
 }

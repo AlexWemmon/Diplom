@@ -1,4 +1,4 @@
-﻿using Diplom.Domain.Repositories.Abstract;
+using Diplom.Domain.Repositories.Abstract;
 using Diplom;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,9 +22,9 @@ namespace Diplom.Domain.Repositories.EntityFramework
             _context.SaveChanges();
         }
         public IQueryable<Student> GetStudents() => _context.Students;
-        public Student GetStudentsById(int? id)
+        public async Task <Student> GetStudentsById(int? id)
         {
-            return _context.Students.FirstOrDefault(m => m.StudentId == id);
+            return  await _context.Students.FirstOrDefaultAsync(m => m.StudentId == id);
         }
         public void SaveStudent(Student entity)
         {

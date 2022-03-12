@@ -1,4 +1,4 @@
-﻿using Diplom;
+using Diplom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ namespace Diplom.Domain.Repositories.Abstract
 {
     public interface IStudentsRepository
     {
-        IQueryable<Student> GetStudents();        
-        Student GetStudentsById(int ? id);
-        void SaveStudent(Student entity);
+        IQueryable<Student> GetStudents();
+		Task<Student> GetStudentsById(int? id);
+		void SaveStudent(Student entity);
         void DeleteStudent(int ? id);
     }
 }

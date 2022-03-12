@@ -1,6 +1,7 @@
 using Diplom.Domain.Repositories.Abstract;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Diplom.Domain.Repositories.EntityFramework
 {
@@ -17,9 +18,9 @@ namespace Diplom.Domain.Repositories.EntityFramework
 			var alltests = new List<Test1>();
 			var questions = new List<Question>();
 			int i = 0;
-			var userName = User.Identity.Name;
+			var _studName = studName;
 			var studId = _context.Students
-				.Where(x => x.LogIn == userName)
+				.Where(x => x.LogIn == _studName)
 				.Select(x => x.StudentId)
 				.First();
 

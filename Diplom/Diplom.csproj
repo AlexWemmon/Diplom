@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.1.2" />
+    <PackageReference Include="FluentAssertions" Version="6.5.1" />
     <PackageReference Include="itext7" Version="7.2.0" />
     <PackageReference Include="itext7.pdfhtml" Version="4.0.0" />
     <PackageReference Include="iTextSharp" Version="5.5.13.2" />
@@ -13,13 +14,17 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.12" />
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.16.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts" Version="5.0.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.115.5" />
   </ItemGroup>
 
 </Project>

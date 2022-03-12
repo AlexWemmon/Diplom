@@ -6,16 +6,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Diplom;
 using Microsoft.AspNetCore.Authorization;
+using Diplom.Service;
 
 namespace Diplom.Controllers
 {
 	public class PersonalStudController : Controller
 	{
 		private readonly test_CursachContext _context;
-
-		public PersonalStudController(test_CursachContext context)
+		private readonly DataManager _dataManager;
+		public PersonalStudController(test_CursachContext context, DataManager dataManager)
 		{
 			_context = context;
+			_dataManager = dataManager;
 		}
 
 		// GET: PersonalStud
@@ -79,7 +81,39 @@ namespace Diplom.Controllers
 		[HttpGet]
 		public async Task<IActionResult> CreateReports()
 		{
-			
+			var answers = await _context.StudentsAnswers.ToListAsync();
+			var alltests = new List<Test1>();
+			var questions = new List<Question>();
+			int i = 0;
+			var userName = User.Identity.Name;
+			var studId = _context.Students
+				.Where(x => x.LogIn == userName)
+				.Select(x => x.StudentId)
+				.First();
+
+			while (i < answers.Count)
+			{
+				foreach (var item in _context.Questions)
+				{
+					if (answers[i].QuestId == item.QuestId && answers[i].StudentId == studId)
+					{
+						questions.Add(item);
+					}
+				}
+				i++;
+			}
+
+			foreach (var item in _context.Tests1)
+			{
+				for (int j = 0; j < questions.Count; j++)
+				{
+					if (item.TestId == questions[j].TestId)
+					{
+						alltests.Add(item);
+						break;
+					}
+				}
+			}
 			return View(alltests);
 		}
 
@@ -115,13 +149,9 @@ namespace Diplom.Controllers
 				return NotFound();
 			}
 
-			var student = await _context.Students.FindAsync(id);
-			if (student == null)
-			{
-				return NotFound();
-			}
+			var student = _dataManager._studRepository.GetStudentsById(id);
 			ViewData["GroupId"] = new SelectList(
-				_context.GroupIds, "GroupId1", "Course", student.GroupId
+				_context.GroupIds, "GroupId1", "Course", student.Result.GroupId
 				);
 			return View(student);
 		}
@@ -184,8 +214,8 @@ namespace Diplom.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> DeleteConfirmed(int id)
 		{
-			var student = await _context.Students.FindAsync(id);
-			_context.Students.Remove(student);
+			var student = _dataManager._studRepository.GetStudentsById(id);
+			_context.Students.Remove(student.Result);
 			await _context.SaveChangesAsync();
 			return RedirectToAction(nameof(Index));
 		}
