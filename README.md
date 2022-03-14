@@ -21,7 +21,7 @@
 <ul>
 <li><i>Server Explorer -> Connect to Database -> Advanced </i>или же в русской версии
 <i>Средства -> Подключиться к базе данных -> выбираем "Файл базы данных Microsoft SQL Server (SqlClient)"</i>, далее нажимаем ОК, идём в "Дополнительно..."</li>
-<li>В пункте Источник(Source) выбираем свойство AttachDbFile там выбираем файл с базой, т.е указываем полный путь до файла <b>test_Cursach.mdf</b> (у меня <i>C:\Users\truen\source\repos\Diplom\Diplom\bin\Debug\net5.0\test_Cursach.mdf)</i>.</li>
+<li>Раздел Источник(Source) выбираем в свойстве AttachDbFile выбираем файл с базой, т.е указываем полный путь до файла <b>test_Cursach.mdf</b> (у меня <i>C:\Users\truen\source\repos\Diplom\Diplom\bin\Debug\net5.0\test_Cursach.mdf)</i>.</li>
 <li>В свойстве Data Source выбираем имя вашего именованного экземпляра(см. пункт 2,у меня экземпляр называется <b>SQLEXPRESS01</b>), и свойство User Instance устанавливаем True. Ниже в окошке будет строка подключения, скопируйте её и нажмите ОК.</li>
  </ul>
 Для тестирования строки подключения к базе нажмите "Проверить подключение", и если всё успешно, то вставьте строку в файл <b>appsettings.json</b> (см. пункт 3), если же возникли ошибки, то возвращаемся к пунктам 2 и 3.
