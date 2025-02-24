@@ -1,9 +1,8 @@
 using System.Collections;
 
-namespace Diplom.Domain.Repositories.Abstract
+namespace Diplom.Domain.Repositories.Abstract;
+
+public interface IReportRepository
 {
-	public interface IReportRepository
-	{
-		IEnumerable CreateReports(string studName);
-	}
+	IEnumerable CreateReports(string studName);
 }

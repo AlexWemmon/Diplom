@@ -1,27 +1,26 @@
 ﻿
 @model IEnumerable<Diplom.Test1>
 <h1>Формирование отчётов по пройдённым тестам</h1>
-<br />
+<br/>
 <form asp-action="Reports" asp-controller="PersonalStud" method="post">
-    <label>Выберите тест для формирования отчёта</label>
-    <select id="users" name="users" required>
-        <option class="dropdown-menu" disabled>Выберите тест</option>
-        @foreach (var item in Model)
-        {
-            <option class="dropdown-item" value="@item.TestId">@item.TestName</option>
-        }
-    </select>
-    <br />
-    <input id="format" name="format" type="radio" value="doc" />
-    <span>.doc</span>
-    <input checked="checked" id="format" name="format" type="radio" value="pdf" />
-    <span>.pdf</span>
-    <br />
+	<label>Выберите тест для формирования отчёта</label>
+	<select id="users" name="users" required>
+		<option class="dropdown-menu" disabled>Выберите тест</option>
+		@foreach (var item in Model)
+		{
+			<option class="dropdown-item" value="@item.TestId">@item.TestName</option>
+		}
+	</select>
+	<br/>
+	<input id="format" name="format" type="radio" value="doc"/>
+	<span>.doc</span>
+	<input checked="checked" id="format" name="format" type="radio" value="pdf"/>
+	<span>.pdf</span>
+	<br/>
 
 
-
-    <div class="form-group">
-        <input type="submit" value="Сформировать" class="btn btn-primary" />
-    </div>
+	<div class="form-group">
+		<input type="submit" value="Сформировать" class="btn btn-primary"/>
+	</div>
 
 </form>

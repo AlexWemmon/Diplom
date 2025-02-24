@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Diplom.ViewModels
+namespace Diplom.ViewModels;
+
+public class AnswerStudentModel
 {
-    public class AnswerStudentModel
-    {
-        [Required(ErrorMessage = "Не указан Login")]
-        public string Login { get; set; }
+	[Required(ErrorMessage = "Не указан Login")]
+	public string Login { get; set; }
 
-        [Required(ErrorMessage = "Не указан пароль")]
+	[Required(ErrorMessage = "Не указан пароль")]
 
-        public string Password { get; set; }
-    }
+	public string Password { get; set; }
 }
